@@ -6,4 +6,4 @@ tags: ['this', 'that']
 excerpt: "A preview of my first post"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
