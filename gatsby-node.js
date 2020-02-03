@@ -32,7 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
             },
           })
 
-          resolve()
+          // resolve()
         })
       })
     )
