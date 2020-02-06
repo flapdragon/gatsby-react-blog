@@ -1,8 +1,31 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-const Template = props => {
-  return <div>Blog post here.</div>
+const Template = ({ data }) => {
+  const { markdownRemark } = data
+  const title = markdownRemark.frontmatter.title
+  const html = markdownRemark.html
+  return (
+    <div>
+      <h1 style={{ fontFamily: "Lucida Sans Unicode" }}>{title}</h1>
+      <div
+        className="blogpost"
+        dangerouslySetInnerHTML={{ __html: html }}
+        style={{ fontFamily: "Lucida Sans Unicode" }}
+      />
+    </div>
+  )
 }
+
+export const query = graphql`
+  query($pathSlug: String!) {
+    markdownRemark(frontmatter: { path: { eq: $pathSlug } }) {
+      html
+      frontmatter {
+        title
+      }
+    }
+  }
+`
 
 export default Template
