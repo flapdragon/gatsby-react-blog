@@ -1,7 +1,8 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
-const Template = ({ data }) => {
+const Template = ({ data, pageContext }) => {
+  const { next, prev } = pageContext
   const { markdownRemark } = data
   const title = markdownRemark.frontmatter.title
   const html = markdownRemark.html
@@ -13,6 +14,13 @@ const Template = ({ data }) => {
         dangerouslySetInnerHTML={{ __html: html }}
         style={{ fontFamily: "Lucida Sans Unicode" }}
       />
+
+      <div style={{ marginBottom: "1rem", fontFamily: "Lucida Sans Unicode" }}>
+        {prev && <Link to={prev.frontmatter.path}>Previous</Link>}
+      </div>
+      <div style={{ fontFamily: "Lucida Sans Unicode" }}>
+        {next && <Link to={next.frontmatter.path}>Next</Link>}
+      </div>
     </div>
   )
 }
